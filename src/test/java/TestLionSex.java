@@ -1,6 +1,5 @@
 import com.example.Feline;
 import com.example.Lion;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,19 +30,16 @@ public class TestLionSex {
     public static Object[][] getHasMane() {
         return new Object[][] {
                 {"Самец", true},
-                {"Самка", false},
-                {"", false}
+                {"Самка", false}
         };
     }
 
     @Test
-    public void shouldBeMane() {
-        try {
+    public void shouldBeMane() throws Exception {
+
             Lion lion = new Lion(sex, feline);
             boolean actual = lion.doesHaveMane();
             assertEquals(expected, actual);
-        } catch (Exception e) {
-            Assert.assertEquals(e.getMessage(), "Используйте допустимые значения пола животного - самец или самка");
-        }
+        //Отображение исключения проверяется в классе TestLion
     }
 }
